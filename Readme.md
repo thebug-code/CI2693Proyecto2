@@ -4,12 +4,12 @@ En primer lugar se tiene que, las intersecciones que conectan las calles de la c
 
 Para hallar el camino de costo mínimo desde la intersección donde esta la casa de Tom hasta la intersección donde esta el estadio se uso el algoritmo de *Dijkstra*, cuya modificación relevante es la añadidura de una función `w` que dado algún lado del grafo retorna el costo del lado, es decir el tiempo que le toma a Tom cruzar la calle tomando en cuenta el tiempo desde el inicio de la nevada, el cronograma de limpieza de la calle y que mientras la calle se esta limpiando no puede haber un carro. Además, dado que cuando comienza a nevar, el tiempo en cruzar una calle es mayor y viene dado por la función:
 
-$$min((\lceil (1 + \frac{T}{100})\rceil * c_i), 100500 * c_i)$$, donde $c_i$ es el tiempo en cruzar la calle cuando no tiene nieve y $T$ es el tiempo que lleva recibiendo nieve desde el la última vez que fue limpiada. El subindice $i$ se refiere a la calle con $id$ $i$. Entonces:
+$$min((\lceil (1 + \frac{T}{100})\rceil * c_i), 100500 * c_i)$$ donde $c_i$ es el tiempo en cruzar la calle cuando no tiene nieve y $T$ es el tiempo que lleva recibiendo nieve desde el la última vez que fue limpiada. El subindice $i$ se refiere a la calle con $id$ $i$. Entonces:
 
 Se tiene tiene que los pasos para el cálculo del costo son los siguientes:
 
 1. Se ordena en forma creciente el cronograma de limpieza de la calle de entrada.
-2. Se busca el $$t_f$$ que indica la última vez que se limpio la calle, tomando como referencia el tiempo de recorrido desde el inicio de la nevada.
+2. Se busca el $t_f$ que indica la última vez que se limpio la calle, tomando como referencia el tiempo de recorrido desde el inicio de la nevada.
 3. Se calcula el tiempo en cruzar la calle, en este caso $T = t - t_f$ donde $t$ es el tiempo de recorrido desde el inicio de la nevada.
 4. Se verifica si hay más limpiezas programadas a partir del par con el tiempo $t_f$ del paso 2, en caso de que no, se retorna el tiempo calculado en el paso 3, de lo contrario se realiza el siguiente paso.
 5. Se calcula el nuevo tiempo en cruzar la calle el cual viene dado por $t_{f_k} - t + c_i$, donde $t_{f_k}$ es el tiempo de finalización de la $k$-énesima limpieza cuyo $$t_f$$ es mayor o igual al de la limpieza encontrada en el paso 2. Lo anterior se hace mientras el tiempo en cruzar la calle más el tiempo desde el inicio de la nevada interfiera con alguna limpieza.
