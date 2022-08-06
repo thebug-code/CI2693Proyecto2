@@ -12,7 +12,7 @@ Se tiene tiene que los pasos para el cálculo del costo son los siguientes:
 2. Se busca el $t_f$ que indica la última vez que se limpio la calle, tomando como referencia el tiempo de recorrido desde el inicio de la nevada.
 3. Se calcula el tiempo en cruzar la calle, en este caso $T = t - t_f$ donde $t$ es el tiempo de recorrido desde el inicio de la nevada.
 4. Se verifica si hay más limpiezas programadas a partir del par con el tiempo $t_f$ del paso 2, en caso de que no, se retorna el tiempo calculado en el paso 3, de lo contrario se realiza el siguiente paso.
-5. Se calcula el nuevo tiempo en cruzar la calle el cual viene dado por $t_{f_k} - t + c_i$, donde $t_{f_k}$ es el tiempo de finalización de la $k$-énesima limpieza cuyo $$t_f$$ es mayor o igual al de la limpieza encontrada en el paso 2. Lo anterior se hace mientras el tiempo en cruzar la calle más el tiempo desde el inicio de la nevada interfiera con alguna limpieza.
+5. Se calcula el nuevo tiempo en cruzar la calle el cual viene dado por $t_{f_k} - t + c_i$, donde $t_{f_k}$ es el tiempo de finalización de la $k$-énesima limpieza cuyo $t_f$ es mayor o igual al de la limpieza encontrada en el paso 2. Lo anterior se hace mientras el tiempo en cruzar la calle más el tiempo desde el inicio de la nevada interfiera con alguna limpieza.
 
 "Interfiera con alguna limpieza" se refiere al hecho de que dicho tiempo este en algún intervalo de limpieza posterior o que sea mayor que el tiempo de finalización de la misma.
 
